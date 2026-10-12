@@ -1,106 +1,137 @@
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Princess Cat Studio - Portfolio</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            line-height: 1.6;
-            background-color: #f4f4f4;
-        }
 
-        header {
-            text-align: center;
-            padding: 30px;
-            background-color: #0078d4;
-            color: white;
-            border-radius: 10px;
-        }
+    <link
+        rel="icon"
+        type="image/jpeg"
+        href="./pinterest/12.jpg"
+        sizes="32x32"
+    >
 
-        section {
-            background-color: white;
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 10px;
-        }
+    <link rel="stylesheet" href="./style.css">
 
-        h2 {
-            color: #0078d4;
-        }
-
-        a {
-            color: #0078d4;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        footer {
-            text-align: center;
-            margin-top: 20px;
-            color: #666;
-        }
-    </style>
+    <script src="./script.js" defer></script>
 </head>
+
 <body>
 
-    <header>
+    <!-- CABECERA PRINCIPAL -->
+    <header class="cabecera-principal" id="cabecera-principal">
+
+        <div class="overlay-logo">
+            <img
+                src="./pinterest/7a5817bd-5d72-49f3-8e46-cffd12d5a5cb.jpeg"
+                alt="Logo Princess Cat Studio"
+                class="logo-cabecera"
+            >
+        </div>
+
         <h1>Princess Cat Studio</h1>
-        <p>Estudio de desarrollo de videojuegos</p>
-        <p>Bienvenido a nuestro portfolio.</p>
-        <p>
-            Lanzamiento de GitHub Pages y preparando la asignatura
-            <strong>Juegos para Web y Redes Sociales</strong>.
-        </p>
+
     </header>
 
-    <section>
-        <h2>Sobre nosotros</h2>
-        <p>Estudio de desarrollo interesado en:</p>
-        <ul>
-            <li>Desarrollo web</li>
-            <li>Inteligencia Artificial</li>
-            <li>Programación</li>
-            <li>Videojuegos</li>
-        </ul>
-    </section>
 
-    <section>
-        <h2>Tecnologías</h2>
-        <ul>
-            <li>HTML5</li>
-            <li>CSS3</li>
-            <li>JavaScript</li>
-            <li>Python</li>
-            <li>GitHub</li>
-        </ul>
-    </section>
+    <!-- BARRA DE NAVEGACIÓN -->
+    <div class="navegacion" id="navegacion">
 
-    <section>
-        <h2>Proyectos</h2>
-        <h3>Portfolio GitHub Pages</h3>
-        <p>Primer portfolio desarrollado utilizando GitHub Pages.</p>
-    </section>
+        <nav class="barranavegacion" id="barra-navegacion">
 
-    <section>
-        <h2>Contacto</h2>
-        <p>
-            <a href="ww.linkedin.comLinkedIn</a>
-        </p>
-        <p>
-            https://github.comGitHub</a>
-        </p>
-    </section>
+            <!-- LOGO PEQUEÑO -->
+            <a href="#inicio" class="logo-nav" aria-label="Ir al inicio">
+                <img
+                    src="./pinterest/1c640fc9-df5d-4b47-b301-c7231089f345.jpg"
+                    alt="Isologo Princess Cat Studio"
+                    class="logo"
+                >
+            </a>
 
+            <!-- BOTÓN HAMBURGUESA -->
+            <button
+                class="menu-btn"
+                id="menu-btn"
+                type="button"
+                aria-label="Abrir menú"
+                aria-expanded="false"
+                aria-controls="menu-principal"
+            >
+                <span class="icono-menu" aria-hidden="true">☰</span>
+            </button>
+
+            <!-- ENLACES -->
+            <ul class="menu" id="menu-principal">
+
+                <li>
+                    <a href="#inicio">Inicio</a>
+                </li>
+
+                <li>
+                    <a href="#sobre-el-estudio">Sobre el estudio</a>
+                </li>
+
+                <li>
+                    <a href="#nuestro-juego">Nuestro juego</a>
+                </li>
+
+                <li>
+                    <a href="#marketing">Marketing</a>
+                </li>
+
+                <li>
+                    <a href="#contactanos">Contáctanos</a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </div>
+
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+
+        <section id="inicio">
+            <h1>DAD'S NIGHT OF TERROR</h1>
+        </section>
+
+        <section id="sobre-el-estudio">
+            <h1>SOBRE EL ESTUDIO</h1>
+            <h2>PROYECTO</h2>
+        </section>
+
+        <section id="nuestro-juego">
+            <h1>NUESTRO JUEGO</h1>
+
+            <h2>Un poco del videojuego</h2>
+
+            <h1>PERSONAJES</h1>
+
+            <h2>Familia</h2>
+            <h2>Monstruos</h2>
+
+            <h1>LOGROS</h1>
+        </section>
+
+        <section id="marketing">
+            <h1>MARKETING</h1>
+        </section>
+
+        <section id="contactanos">
+            <h1>CONTÁCTANOS</h1>
+        </section>
+
+    </main>
+
+
+    <!-- PIE DE PÁGINA -->
     <footer>
-        <p>&copy; 2026 Raúl Cacho Domínguez</p>
+        <p>&copy; 2026 Princess Cat Studio</p>
     </footer>
 
 </body>

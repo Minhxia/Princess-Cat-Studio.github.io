@@ -1,0 +1,407 @@
+
+/* ========================================
+   FUENTES
+======================================== */
+
+@font-face {
+    font-family: "Textos";
+    src: url("./fonts/F25_Executive.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: "Titulos";
+    src: url("./fonts/Vexler\ Slip.otf") format("opentype");
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+
+/* ========================================
+   VARIABLES
+======================================== */
+
+:root {
+    --color-principal-lila: rgb(168, 122, 217);
+    --color-principal-rojo: rgb(189, 9, 53);
+    --color-texto: rgb(240, 239, 255);
+    --color-fondo: rgb(28, 3, 28);
+
+    --padding-general: 1rem;
+}
+
+
+/* ========================================
+   CONFIGURACIÓN GENERAL
+======================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+}
+
+body {
+    font-family: "Textos", sans-serif;
+
+    max-width: 56.25rem;
+    margin: 0 auto;
+    padding: 1.25rem;
+
+    line-height: 1.6;
+
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    color: var(--color-principal-lila);
+    font-family: "Titulos", Times, serif;
+}
+
+
+section {
+    margin-top: 1.25rem;
+    padding: 1.25rem;
+    border-radius: 0.625rem;
+}
+
+main section {
+    min-height: 12rem;
+    scroll-margin-top: 5rem;
+}
+
+
+/* ========================================
+   CABECERA PRINCIPAL
+======================================== */
+
+.cabecera-principal {
+    margin-top: 1.25rem;
+    padding: 2rem 1rem;
+
+    text-align: center;
+}
+
+.overlay-logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+
+    transition:
+        opacity 0.35s ease,
+        transform 0.35s ease,
+        visibility 0.35s ease;
+}
+
+.logo-cabecera {
+    display: block;
+
+    width: clamp(8rem, 35vw, 20rem);
+    max-width: 100%;
+    height: auto;
+
+    filter:
+        drop-shadow(0 0 0.625rem var(--color-principal-lila))
+        drop-shadow(0 0 1.25rem var(--color-principal-rojo));
+}
+
+/* Ocultar el logo grande cuando se activa el scroll */
+
+.cabecera-principal.logo-oculto .overlay-logo {
+    opacity: 0;
+    transform: translateY(-1rem);
+    visibility: hidden;
+    pointer-events: none;
+}
+
+/* Evita que el título de cabecera provoque saltos
+   al ocultar el logo */
+.cabecera-principal h1 {
+    margin-bottom: 0;
+}
+
+
+/* ========================================
+   BARRA DE NAVEGACIÓN FIJA
+======================================== */
+
+.navegacion {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background-color: var(--color-fondo);
+
+    /* Oculta la barra por encima de la pantalla */
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        transform 0.3s ease,
+        visibility 0.3s ease;
+}
+
+/* Mostrar la barra al bajar */
+
+.navegacion.visible {
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* ========================================
+   CONTENIDO DE LA BARRA
+======================================== */
+
+.barranavegacion {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    gap: 1rem;
+
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.625rem 1.25rem;
+
+    background-color: var(--color-fondo);
+}
+
+
+/* ========================================
+   LOGO PEQUEÑO
+======================================== */
+
+.logo-nav {
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+}
+
+.logo {
+    display: block;
+
+    width: auto;
+    height: clamp(2.5rem, 5vw, 3rem);
+
+    object-fit: contain;
+}
+
+
+/* ========================================
+   MENÚ DE ESCRITORIO
+======================================== */
+
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    gap: 1.25rem;
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.menu li {
+    margin: 0;
+    padding: 0;
+}
+
+.menu li a {
+    display: block;
+
+    color: var(--color-texto);
+    text-decoration: none;
+
+    font-size: 1rem;
+    font-weight: 900;
+
+    transition:
+        color 0.3s ease,
+        filter 0.3s ease;
+}
+
+.menu li a:hover {
+    color: var(--color-principal-lila);
+
+    filter:
+        drop-shadow(0 0 0.3rem var(--color-principal-lila))
+        drop-shadow(0 0 0.5rem var(--color-principal-rojo));
+}
+
+
+/* ========================================
+   BOTÓN HAMBURGUESA
+======================================== */
+
+.menu-btn {
+    display: none;
+
+    flex-shrink: 0;
+
+    padding: 0.25rem 0.5rem;
+
+    border: none;
+    border-radius: 0.375rem;
+
+    background: transparent;
+
+    color: var(--color-texto);
+    font-family: Arial, sans-serif;
+    font-size: 2rem;
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.menu-btn:hover,
+.menu-btn:focus-visible {
+    color: var(--color-principal-lila);
+}
+
+.menu-btn:focus-visible {
+    outline: 0.125rem solid var(--color-principal-lila);
+    outline-offset: 0.25rem;
+}
+
+
+/* ========================================
+   MÓVILES Y TABLETS
+======================================== */
+
+@media (max-width: 48rem) {
+
+    body {
+        padding: 0.75rem;
+    }
+
+    .cabecera-principal {
+        margin-top: 0.75rem;
+        padding: 1.5rem 0.5rem;
+    }
+
+    .logo-cabecera {
+        width: clamp(7rem, 40vw, 16rem);
+    }
+
+    /* Barra y botón */
+
+    .barranavegacion {
+        position: relative;
+
+        flex-wrap: wrap;
+        gap: 0.5rem;
+
+        padding: 0.625rem 1rem;
+    }
+
+    .logo {
+        height: 2.75rem;
+    }
+
+    .menu-btn {
+        display: block;
+        margin-left: auto;
+    }
+
+    /* Menú cerrado por defecto */
+
+    .menu {
+        display: none;
+
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+
+        gap: 0;
+
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+
+        width: 100%;
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
+
+        padding: 0.5rem 1rem;
+
+        background-color: var(--color-fondo);
+        border-top: 0.0625rem solid var(--color-principal-lila);
+
+        box-shadow: 0 0.5rem 1rem rgb(0, 0, 0, 0.3);
+    }
+
+    /* Menú abierto */
+
+    .menu.show {
+        display: flex;
+    }
+
+    .menu li a {
+        padding: 0.75rem 0.5rem;
+    }
+
+    main section {
+        scroll-margin-top: 4rem;
+    }
+}
+
+
+/* ========================================
+   MOVIMIENTO REDUCIDO
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .navegacion,
+    .overlay-logo {
+        transition: none;
+    }
+}
+
+
+/* ========================================
+   PIE DE PÁGINA
+======================================== */
+
+footer {
+    text-align: center;
+    margin-top: 1.25rem;
+    padding: 1rem;
+
+    color: var(--color-texto);
+}
