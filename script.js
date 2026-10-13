@@ -1,9 +1,7 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    // ========================================
-    // ELEMENTOS
-    // ========================================
+
 
     const cabecera = document.getElementById("cabecera-principal");
     const navegacion = document.getElementById("navegacion");
@@ -20,37 +18,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // ========================================
-    // NAVEGACIÓN CON SCROLL
-    // ========================================
-
     function actualizarNavegacion() {
 
-        // La barra aparece al bajar más de 100 píxeles.
+   
         const mostrarNavegacion = window.scrollY > 100;
 
-        // Ocultar el logo grande.
+   
         cabecera.classList.toggle(
             "logo-oculto",
             mostrarNavegacion
         );
 
-        // Mostrar u ocultar la barra fija.
+   
         navegacion.classList.toggle(
             "visible",
             mostrarNavegacion
         );
 
-        // Si volvemos arriba, cerrar también el menú móvil.
         if (!mostrarNavegacion) {
             cerrarMenu();
         }
     }
 
-
-    // ========================================
-    // ABRIR Y CERRAR MENÚ HAMBURGUESA
-    // ========================================
 
     function abrirMenu() {
 
@@ -91,10 +80,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // ========================================
-    // CERRAR AL PULSAR UN ENLACE
-    // ========================================
-
     const enlaces = menu.querySelectorAll("a");
 
     enlaces.forEach((enlace) => {
@@ -105,10 +90,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    // ========================================
-    // CERRAR AL CAMBIAR A ESCRITORIO
-    // ========================================
 
     window.addEventListener("resize", () => {
 
@@ -121,20 +102,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    // ========================================
-    // EVENTOS DE SCROLL
-    // ========================================
-
     window.addEventListener(
         "scroll",
         actualizarNavegacion,
         { passive: true }
     );
 
-
-    // ========================================
-    // ESTADO INICIAL
-    // ========================================
 
     actualizarNavegacion();
 
