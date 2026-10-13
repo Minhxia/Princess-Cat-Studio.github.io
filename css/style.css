@@ -24,7 +24,7 @@
 ======================================== */
 
 :root {
-    --color-principal-lila: rgb(168, 122, 217);
+    --color-principal-lila: rgb(205, 168, 79);
     --color-principal-rojo: rgb(189, 9, 53);
     --color-texto: rgb(240, 239, 255);
     --color-sombra: rgb(121, 109, 136);
@@ -128,7 +128,8 @@ main section {
    PIE DE PÁGINA
 ======================================== */
 
-footer {
+footer P{
+    justify-content: center;
     text-align: center;
     margin-top: 1.25rem;
     padding: 1rem;

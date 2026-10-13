@@ -110,6 +110,9 @@
 
     flex-shrink: 0;
 }
+.logo-nav a{
+    text-decoration: none;
+}
 
 .logo {
     display: block;

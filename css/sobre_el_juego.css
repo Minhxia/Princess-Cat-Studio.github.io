@@ -17,3 +17,62 @@
     aspect-ratio: 9/16;
     padding: 1rem;
 }
+.mini-gameplays {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 1.25rem;
+}
+
+.gameplay {
+    display: flex;
+    flex-direction: column;
+    width: 15rem;
+    
+    
+    padding: 1rem;
+    border: 0.25rem dotted var(--color-principal-lila);
+}
+.gameplay video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+.gameplay p {
+    text-align: center;
+}
+
+
+
+.info-tarjetas {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    gap: 1.25rem;
+}
+
+.personaje {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 0 1 10rem;
+    width: 10rem;
+       
+    padding: 1rem;
+    border: 0.25rem dotted var(--color-principal-lila);
+}
+.foto-personaje {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3/4;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+.personaje p {
+    text-align: center;
+}
