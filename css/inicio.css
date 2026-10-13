@@ -1,0 +1,58 @@
+/* ========================================
+   INICIO
+======================================== */
+
+/*VIDEO TRAILER DEL VIDEOJUEGO*/
+.preview {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    align-items: center;
+    width: 100%;
+}
+.trailer-presentacion {
+    width: 100%;
+    max-width: 75rem;
+    margin: 2.5rem auto;
+    
+}
+.trailer-presentacion video {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    object-fit: contain;
+    border-radius: 0.5rem;
+}
+
+.boton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin: 1rem auto;
+}
+
+.boton a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 0.75rem 2rem;
+
+    background-color: var(--color-principal-lila);
+    color: var(--color-texto);
+
+    border-radius: 0.5rem;
+    
+    transition: background-color 0-3s ease,
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+.boton a:hover {
+    background-color: var(--color-principal-rojo);
+    border-color: var(--color-principal-rojo);
+
+    transform: scale(1.05);
+
+    box-shadow: 0 0 1rem var(--color-principal-lila);
+}

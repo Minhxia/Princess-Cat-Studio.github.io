@@ -1,0 +1,34 @@
+.enlaces-contactos {
+    display: flex;
+    
+    justify-content: center;
+    flex-direction: row;
+    margin: auto 1.5rem;
+}
+.lista-redes{
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+.lista-redes a {
+    display: flex;
+    flex-direction: row;
+    text-decoration: none;
+    margin: 0.5rem;
+}
+.lista-redes svg{
+    margin: 1rem;
+}
+.lista-redes p{
+   font-size: 1.2rem;
+   color: var(--color-texto);
+   margin: auto 0.5rem;
+}
+.img-gato-secretaria {
+    width: 20rem;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 9/16;
+    margin: auto 0.5rem;
+    padding: auto 1rem;
+}

@@ -1,90 +1,3 @@
-
-/* ========================================
-   FUENTES
-======================================== */
-
-@font-face {
-    font-family: "Textos";
-    src: url("./fonts/F25_Executive.otf") format("opentype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-@font-face {
-    font-family: "Titulos";
-    src: url("./fonts/Vexler\ Slip.otf") format("opentype");
-    font-weight: 300;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-/* ========================================
-   VARIABLES
-======================================== */
-
-:root {
-    --color-principal-lila: rgb(168, 122, 217);
-    --color-principal-rojo: rgb(189, 9, 53);
-    --color-texto: rgb(240, 239, 255);
-    --color-fondo: rgb(28, 3, 28);
-
-    --padding-general: 1rem;
-}
-
-
-/* ========================================
-   CONFIGURACIÓN GENERAL
-======================================== */
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 5rem;
-}
-
-body {
-    font-family: "Textos", sans-serif;
-
-    max-width: 56.25rem;
-    margin: 0 auto;
-    padding: 1.25rem;
-
-    line-height: 1.6;
-
-    background-color: var(--color-fondo);
-    color: var(--color-texto);
-}
-
-img {
-    max-width: 100%;
-    height: auto;
-}
-
-h1 {
-    text-align: center;
-    font-size: 3rem;
-    letter-spacing: 0.2rem;
-    color: var(--color-principal-lila);
-    font-family: "Titulos", Times, serif;
-}
-
-
-section {
-    margin-top: 1.25rem;
-    padding: 1.25rem;
-    border-radius: 0.625rem;
-}
-
-main section {
-    min-height: 12rem;
-    scroll-margin-top: 5rem;
-}
-
-
 /* ========================================
    CABECERA PRINCIPAL
 ======================================== */
@@ -125,8 +38,6 @@ main section {
         drop-shadow(0 0 1.25rem var(--color-principal-rojo));
 }
 
-/* Ocultar el logo grande cuando se activa el scroll */
-
 .cabecera-principal.logo-oculto .overlay-logo {
     opacity: 0;
     transform: translateY(-1rem);
@@ -134,11 +45,7 @@ main section {
     pointer-events: none;
 }
 
-/* Evita que el título de cabecera provoque saltos
-   al ocultar el logo */
-.cabecera-principal h1 {
-    margin-bottom: 0;
-}
+
 
 
 /* ========================================
@@ -156,7 +63,6 @@ main section {
 
     background-color: var(--color-fondo);
 
-    /* Oculta la barra por encima de la pantalla */
     transform: translateY(-100%);
     visibility: hidden;
     pointer-events: none;
@@ -166,7 +72,6 @@ main section {
         visibility 0.3s ease;
 }
 
-/* Mostrar la barra al bajar */
 
 .navegacion.visible {
     transform: translateY(0);
@@ -294,16 +199,11 @@ main section {
     outline-offset: 0.25rem;
 }
 
-
 /* ========================================
    MÓVILES Y TABLETS
 ======================================== */
 
 @media (max-width: 48rem) {
-
-    body {
-        padding: 0.75rem;
-    }
 
     .cabecera-principal {
         margin-top: 0.75rem;
@@ -334,7 +234,6 @@ main section {
         margin-left: auto;
     }
 
-    /* Menú cerrado por defecto */
 
     .menu {
         display: none;
@@ -362,8 +261,6 @@ main section {
         box-shadow: 0 0.5rem 1rem rgb(0, 0, 0, 0.3);
     }
 
-    /* Menú abierto */
-
     .menu.show {
         display: flex;
     }
@@ -375,33 +272,4 @@ main section {
     main section {
         scroll-margin-top: 4rem;
     }
-}
-
-
-/* ========================================
-   MOVIMIENTO REDUCIDO
-======================================== */
-
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
-
-    .navegacion,
-    .overlay-logo {
-        transition: none;
-    }
-}
-
-
-/* ========================================
-   PIE DE PÁGINA
-======================================== */
-
-footer {
-    text-align: center;
-    margin-top: 1.25rem;
-    padding: 1rem;
-
-    color: var(--color-texto);
 }
