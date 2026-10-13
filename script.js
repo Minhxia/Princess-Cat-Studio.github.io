@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuBtn = document.getElementById("menu-btn");
     const menu = document.getElementById("menu-principal");
 
-    // Si falta algún elemento, evitamos errores de JavaScript.
+
     if (!cabecera || !navegacion || !menuBtn || !menu) {
         console.error(
             "Error: no se encuentra la cabecera, navegación o menú."
