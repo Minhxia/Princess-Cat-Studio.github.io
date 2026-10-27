@@ -61,7 +61,9 @@
 
     background-color: var(--color-fondo);
 
-    transform: translateY(-100%);
+/* Borramos esa parte para que la barra de navegación se mantenga fija */
+
+/*    transform: translateY(-100%);
     visibility: hidden;
     pointer-events: none;
 
@@ -71,7 +73,7 @@
 }
 
 
-.navegacion.visible {
+.navegacion.visible { */
     transform: translateY(0);
     visibility: visible;
     pointer-events: auto;
