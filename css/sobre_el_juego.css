@@ -49,30 +49,113 @@
 
 .info-tarjetas {
     display: flex;
-    flex-direction: row;
     justify-content: center;
-    
+    flex-wrap: wrap;
     gap: 1.25rem;
+}
+
+.filtros-personajes {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0 0.5rem;
+}
+
+.filtro-personajes {
+    padding: 0.55rem 1rem;
+    border: 0.125rem solid var(--color-principal-lila);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--color-texto);
+    font: inherit;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.filtro-personajes:hover,
+.filtro-personajes:focus-visible,
+.filtro-personajes.activo {
+    background: var(--color-principal-lila);
+    color: var(--color-fondo);
+}
+
+.filtro-personajes:focus-visible {
+    outline: 0.15rem solid var(--color-texto);
+    outline-offset: 0.15rem;
+}
+
+.filtro-personajes:hover {
+    transform: translateY(-0.1rem);
+}
+
+.estado-filtro-personajes {
+    min-height: 1.6em;
+    margin: 0.5rem 0 1rem;
+    text-align: center;
 }
 
 .personaje {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    flex: 0 1 10rem;
-    width: 10rem;
-       
+    flex: 1 1 12rem;
+    max-width: 16rem;
+    overflow: hidden;
     padding: 1rem;
-    border: 0.25rem dotted var(--color-principal-lila);
+    border: 0.2rem dotted var(--color-principal-lila);
+    border-radius: 0.5rem;
+    background-color: rgb(255 255 255 / 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-.foto-personaje {
+
+.personaje:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.4rem 1.25rem rgb(205 168 79 / 0.2);
+}
+
+.personaje[hidden] {
+    display: none;
+}
+
+.retrato-personaje {
     display: block;
     width: 100%;
     height: auto;
-    aspect-ratio: 3/4;
-    object-fit: contain;
-    border-radius: 0.5rem;
+    border-radius: 0.3rem;
+    background: linear-gradient(145deg, rgb(205 168 79 / 0.25), rgb(189 9 53 / 0.25));
 }
-.personaje p {
+
+.contenido-personaje {
+    padding-top: 0.75rem;
+}
+
+.categoria-personaje {
+    color: var(--color-principal-lila);
+    font-size: 0.8rem;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+.personaje h3 {
+    margin: 0.25rem 0;
+    font-family: "Titulos", Times, serif;
+    font-size: 1.35rem;
+    font-weight: 300;
     text-align: center;
+}
+
+.personaje p {
+    margin: 0.25rem 0 0;
+    text-align: center;
+}
+
+@media (max-width: 35rem) {
+    .personaje {
+        flex-basis: 8.5rem;
+        max-width: 12rem;
+    }
+
+    .retrato-personaje {
+        height: 7rem;
+    }
 }

@@ -36,6 +36,28 @@
         drop-shadow(0 0 1.25rem var(--color-principal-rojo));
 }
 
+.logo-svg {
+    display: block;
+
+    width: auto;
+    height: clamp(2.5rem, 5vw, 3rem);
+
+    fill: var(--color-principal-lila);
+
+    filter:
+        drop-shadow(0 0 0.3rem var(--color-principal-lila))
+        drop-shadow(0 0 0.5rem var(--color-principal-rojo));
+
+    transition: filter 0.3s ease;
+}
+
+.logo-nav:hover .logo-svg,
+.logo-nav:focus-visible .logo-svg {
+    filter:
+        drop-shadow(0 0 0.5rem var(--color-principal-lila))
+        drop-shadow(0 0 0.8rem var(--color-principal-rojo));
+}
+
 .cabecera-principal.logo-oculto .overlay-logo {
     opacity: 0;
     transform: translateY(-1rem);
@@ -60,20 +82,6 @@
     z-index: 1000;
 
     background-color: var(--color-fondo);
-
-/* Borramos esa parte para que la barra de navegación se mantenga fija */
-
-/*    transform: translateY(-100%);
-    visibility: hidden;
-    pointer-events: none;
-
-    transition:
-        transform 0.3s ease,
-        visibility 0.3s ease;
-}
-
-
-.navegacion.visible { */
     transform: translateY(0);
     visibility: visible;
     pointer-events: auto;
@@ -228,7 +236,7 @@
         padding: 0.625rem 1rem;
     }
 
-    .logo {
+    .logo-svg {
         height: 2.75rem;
     }
 

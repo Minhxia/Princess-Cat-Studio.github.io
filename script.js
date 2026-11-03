@@ -1,6 +1,37 @@
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    const botonesFiltro = document.querySelectorAll(".filtro-personajes");
+    const tarjetasPersonaje = document.querySelectorAll(".personaje[data-categoria]");
+    const estadoFiltro = document.querySelector(".estado-filtro-personajes");
+
+    if (botonesFiltro.length && tarjetasPersonaje.length && estadoFiltro) {
+        botonesFiltro.forEach((boton) => {
+            boton.addEventListener("click", () => {
+                const filtro = boton.dataset.filtro;
+                let visibles = 0;
+
+                tarjetasPersonaje.forEach((tarjeta) => {
+                    const mostrar = filtro === "todos" || tarjeta.dataset.categoria === filtro;
+                    tarjeta.hidden = !mostrar;
+                    if (mostrar) {
+                        visibles += 1;
+                    }
+                });
+
+                botonesFiltro.forEach((otroBoton) => {
+                    const seleccionado = otroBoton === boton;
+                    otroBoton.classList.toggle("activo", seleccionado);
+                    otroBoton.setAttribute("aria-pressed", String(seleccionado));
+                });
+
+                estadoFiltro.textContent = `Mostrando ${visibles} ${visibles === 1 ? "personaje" : "personajes"}.`;
+            });
+        });
+
+        estadoFiltro.textContent = `Mostrando ${tarjetasPersonaje.length} personajes.`;
+    }
+
 
 
     const cabecera = document.getElementById("cabecera-principal");
