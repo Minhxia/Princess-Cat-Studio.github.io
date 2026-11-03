@@ -142,4 +142,64 @@ document.addEventListener("DOMContentLoaded", () => {
 
     actualizarNavegacion();
 
+
+
+    const cat    = document.getElementById('cat');
+    const frames = cat.querySelectorAll('img');
+    const zzz = document.getElementById('zzz');
+    const sound = new Audio('./src/sonidos/meow.mp3');
+    sound.preload = 'auto';
+
+    // Índices de los frames "dormido" y duración (ms) de cada uno
+    const SLEEP_FRAMES    = [0, 1, 2, 1]; 
+    const SLEEP_DURATIONS = [800, 300, 1000, 300];
+    const AWAKE_INDEX     = 3;
+
+    let timer     = null;
+    let sleeping  = true;
+    let holdAwake = null;
+
+    cat.addEventListener('click', () => {
+        sound.currentTime = 0;   // reinicia si ya estaba sonando
+        sound.play();
+        showAwake();
+        clearTimeout(holdAwake);
+        holdAwake = setTimeout(() => { holdAwake = null; startSleep(); }, 3000);
+    });
+
+    function showFrame(index) {
+        frames.forEach((img, i) => img.classList.toggle('active', i === index));
+    }
+
+    function playSleep(step = 0) {
+        if (!sleeping) return;
+            showFrame(SLEEP_FRAMES[step]);
+            timer = setTimeout(() => {
+                    playSleep((step + 1) % SLEEP_FRAMES.length);
+        }, SLEEP_DURATIONS[step]);
+    }
+
+    function startSleep() {
+        if (holdAwake) return;
+        sleeping = true;
+        clearTimeout(timer);
+        zzz.classList.remove('hidden');
+        playSleep(0);
+    }
+
+    function showAwake() {
+        sleeping = false;
+        clearTimeout(timer);
+        zzz.classList.add('hidden');
+        showFrame(AWAKE_INDEX);
+    }
+
+    cat.addEventListener('mouseenter', showAwake);
+    cat.addEventListener('mouseleave', startSleep);
+    // Soporte táctil
+    cat.addEventListener('touchstart', showAwake, { passive: true });
+    cat.addEventListener('touchend',   startSleep);
+
+    startSleep();
+
 });

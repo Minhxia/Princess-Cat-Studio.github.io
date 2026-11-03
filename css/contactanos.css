@@ -1,6 +1,61 @@
+.cat {
+    grid-column: 2;                     /* ← AÑADE: columna derecha */
+    grid-row: 1;                        /* ← AÑADE: fila 1 */
+    justify-self: center;               /* ← AÑADE: centrado horizontal */
+    align-self: end;                    /* ← AÑADE: pegado abajo de su fila */
+    margin-bottom: -8.5rem;               /* ← AÑADE: cuánto cuelgan las patas */
+    z-index: 2;
+    position: relative;
+    width: 200px;
+    height: 200px;
+    cursor: pointer;
+}
+.cat img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;              /* todas ocultas por defecto */
+    filter:
+    drop-shadow( 1px  1px  0 var(--color-principal-lila))
+    drop-shadow(-1px  1px  0 var(--color-principal-lila))
+    drop-shadow( 1px -1px  0 var(--color-principal-lila))
+    drop-shadow(-1px -1px  0 var(--color-principal-lila));
+}
+.cat img.active { opacity: 1; }
+
+.zzz {
+  position: absolute;
+  top: 8%;
+  left: 15%;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.zzz.hidden { display: none; }
+
+.z {
+  position: absolute;
+  font-size: 24px;
+  opacity: 0;
+  color: #fff;
+}
+.z-1 { animation: swayUpToRight 2.5s ease-out infinite; }
+.z-2 { animation: swayUpToRight 2.5s ease-out 0.5s infinite; }
+.z-3 { animation: swayUpToRight 2.5s ease-out 1s infinite; }
+
+@keyframes swayUpToRight {
+  0%   { transform: translate(0, 0) rotate(0deg);       opacity: 1; }
+  100% { transform: translate(80px, -100px) rotate(30deg); opacity: 0; }
+}
+
 .enlaces-contactos {
     display: grid;
     grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    grid-template-rows: auto auto;
     align-items: start;
     gap: clamp(1rem, 3vw, 2rem);
 
@@ -9,6 +64,8 @@
 }
 
 .lista-redes {
+    grid-column: 1;
+    grid-row: 1 / span 2;
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
@@ -71,8 +128,13 @@
 }
 
 .formulario-contacto {
+    grid-column: 2;
+    grid-row: 2;
+    position: relative;
+    z-index: 1;
     min-width: 0;
     padding: clamp(1rem, 3vw, 1.5rem);
+    padding-top: calc(clamp(1rem, 3vw, 1.5rem) + 1rem);
 
     border: 0.1875rem dotted var(--color-principal-lila);
     border-radius: 0.75rem;
@@ -191,13 +253,30 @@
 @media (max-width: 42rem) {
     .enlaces-contactos {
         grid-template-columns: 1fr;
+        grid-template-rows: auto;
         gap: 0.5rem;
     }
 
     .lista-redes {
+        grid-column: auto;
+        grid-row: auto;
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         padding: 0;
+    }
+
+    .cat {
+        grid-column: auto;
+        grid-row: auto;
+        justify-self: center;
+        margin-bottom: -7rem;
+    }
+
+    .formulario-contacto {
+        grid-column: auto;
+        grid-row: auto;
+        padding: clamp(1rem, 3vw, 1.5rem);
+        padding-top: calc(clamp(1rem, 3vw, 1.5rem) + 1rem);
     }
 }
 
