@@ -5,22 +5,27 @@
     gap: 1.25rem;
 }
 .tarjeta-presentacion {
-    width: 24rem;
+    width: 27rem;
     max-width: 100%;
     display: flex;
     flex-direction: row;
-    
     
     padding: 0.75rem;
     margin: 0.5rem;
 
     border-radius: 0.5rem;
     border: 0.3125rem dotted var(--color-principal-lila);
+    background-color: rgb(255 255 255 / 0.03);
     transition: 
         transform 0.3s ease,  
         box-shadow 0.3s ease,  
         color 0.3s ease;  
 }
+
+.tarjeta-presentacion p {
+    text-align: left;
+}
+
 .tarjeta-presentacion:hover {
     transform: scale(1.1);
     z-index: 2;
@@ -36,6 +41,7 @@
 
 
 .foto-gato {
+    flex: 0 0 10rem;
     width: 30rem;
     max-width: 15rem;
     height: auto;

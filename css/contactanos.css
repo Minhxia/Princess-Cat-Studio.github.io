@@ -1,9 +1,9 @@
 .cat {
-    grid-column: 2;                     /* ← AÑADE: columna derecha */
-    grid-row: 1;                        /* ← AÑADE: fila 1 */
-    justify-self: center;               /* ← AÑADE: centrado horizontal */
-    align-self: end;                    /* ← AÑADE: pegado abajo de su fila */
-    margin-bottom: -8.5rem;               /* ← AÑADE: cuánto cuelgan las patas */
+    grid-column: 2;
+    grid-row: 1;
+    justify-self: center;
+    align-self: end;
+    margin-bottom: -8.5rem;
     z-index: 2;
     position: relative;
     width: 200px;
