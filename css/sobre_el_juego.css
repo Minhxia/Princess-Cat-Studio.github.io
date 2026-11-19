@@ -1,21 +1,25 @@
 .info-videojuegos {
     display: flex;
-    
     justify-content: center;
     flex-direction: row;
     gap: 1.5rem;
 }
 .caracteristicas {
-    margin: auto 0.5rem;
+    flex:auto;
+    min-width: 0rem;
+    margin: 0.5rem;
     padding: 1rem;
     
 }
 .portada-juego {
+    display: block;
     width: 22rem;
     max-width: 100%;
     height: auto;
-    aspect-ratio: 9/16;
-    padding: 1rem;
+    max-height: 32rem;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0.5rem;
 }
 .mini-gameplays {
     display: flex;
@@ -149,7 +153,13 @@
     text-align: center;
 }
 
-@media (max-width: 35rem) {
+@media (max-width: 45rem) {
+
+    .info-videojuegos {
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
     .personaje {
         flex-basis: 8.5rem;
         max-width: 12rem;

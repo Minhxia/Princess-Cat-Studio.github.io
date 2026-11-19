@@ -67,6 +67,11 @@ p {
     text-align: justify;
 }
 
+p span {
+    color: var(--color-principal-rojo);
+    font-weight: bold;
+}
+
 section {
     margin-top: 1.25rem;
     padding: 1.25rem;
