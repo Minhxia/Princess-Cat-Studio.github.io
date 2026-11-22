@@ -1,15 +1,44 @@
+.moni-contexto {
+    margin: 0 0 1.5rem;
+}
 .info-videojuegos {
     display: flex;
     justify-content: center;
+    align-items: flex-start;
     flex-direction: row;
     gap: 1.5rem;
 }
 .caracteristicas {
     flex:auto;
     min-width: 0rem;
-    margin: 0.5rem;
-    padding: 1rem;
+    margin: 0;
+    padding: 0;
     
+}
+.caracteristicas p:first-child {
+    margin-top: 0;
+}
+.cartel {
+    max-width: 22rem;
+    margin: 2rem auto 0;
+    padding: 1rem 1.5rem;
+    border: 0.3rem double var(--color-fondo);
+    border-radius: 0.3rem;
+    background-color: var(--color-principal-lila);
+    box-shadow: 0 0.4rem 1rem rgb(0 0 0 / 0.5);
+    transform: rotate(-2deg);
+    transition: transform 0.3s ease;
+} 
+.cartel p {
+    margin: 0;
+    color: var(--color-principal-rojo);
+    font-family: "Titulos", Times, serif;
+    font-size: 1.6rem;
+    line-height: 1.1;
+    text-align: center;
+}
+.cartel:hover {
+    transform: rotate(-2deg) scale(1.1);
 }
 .portada-juego {
     display: block;
@@ -21,21 +50,41 @@
     object-position: center;
     border-radius: 0.5rem;
 }
+.carrusel {
+    position: relative;
+}
+.ventana-carrusel {
+    margin: 0 calc(-1 * var(--margen-lateral));
+    overflow: hidden;
+}
 .mini-gameplays {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap; 
-    gap: 1.25rem;
+    touch-action: pan-y;
+    user-select: none;
+    cursor: grab;
+    transition: transform 0.6s ease-in-out;
+}
+.mini-gameplays.arrastrando {
+    cursor: grabbing;
+    transition: none;
+}
+.mini-gameplays.sin-transicion {
+    transition: none;
 }
 
 .gameplay {
+    flex: 0 0 100%;
+    min-width: 0;
+}
+.cuadro-gameplay {
     display: flex;
     flex-direction: column;
-    width: 15rem;
-    
-    
+    width: 36rem;
+    max-width: calc(100% - 2rem);
+    margin: 0 auto;
     padding: 1rem;
     border: 0.25rem dotted var(--color-principal-lila);
+    border-radius: 0.5rem;
 }
 .gameplay video {
     display: block;
@@ -44,9 +93,86 @@
     aspect-ratio: 16/9;
     object-fit: contain;
     border-radius: 0.5rem;
+    background-color: rgb(0 0 0 / 0.3);
 }
 .gameplay p {
+    margin-bottom: 0;
     text-align: center;
+}
+
+.flecha-carrusel {
+    position: absolute;
+    top: 50%;
+    z-index: 1;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-top: -1.375rem;
+    padding: 0.5rem;
+    border: 0.125rem solid var(--color-principal-lila);
+    border-radius: 50%;
+    background-color: rgb(28 3 28 / 0.7);
+    color: var(--color-principal-lila);
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, opacity 0.2s ease;
+}
+
+.flecha-carrusel svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.flecha-carrusel:hover,
+.flecha-carrusel:focus-visible {
+    background-color: var(--color-principal-lila);
+    color: var(--color-fondo);
+    box-shadow: 0 0 1rem var(--color-principal-lila);
+}
+
+.flecha-izquierda {
+    left: calc(50% - 22rem);
+}
+
+.flecha-derecha {
+    right: calc(50% - 22rem);
+}
+
+.carrusel.moviendose .flecha-carrusel {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.puntos-carrusel {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    margin-top: 1rem;
+}
+
+.punto {
+    width: 0.75rem;
+    height: 0.75rem;
+    padding: 0;
+    border: 0.125rem solid var(--color-principal-lila);
+    border-radius: 999px;
+    background-color: transparent;
+    cursor: pointer;
+    transition: width 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.punto:hover,
+.punto:focus-visible {
+    box-shadow: 0 0 0.5rem var(--color-principal-lila);
+}
+
+.punto.activo {
+    width: 1.75rem;
+    background-color: var(--color-principal-lila);
 }
 
 
@@ -63,18 +189,18 @@
     justify-content: center;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin: 1.5rem 0 0.5rem;
+    margin: 1.5rem 0 1.25rem;
 }
 
 .filtro-personajes {
-    padding: 0.55rem 1rem;
+    padding: 0.65rem 1rem 0.45rem;
     border: 0.125rem solid var(--color-principal-lila);
     border-radius: 999px;
     background: transparent;
     color: var(--color-texto);
     font: inherit;
     cursor: pointer;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .filtro-personajes:hover,
@@ -91,34 +217,58 @@
 
 .filtro-personajes:hover {
     transform: translateY(-0.1rem);
+    box-shadow: 0 0 1rem var(--color-principal-lila);
 }
 
 .estado-filtro-personajes {
     min-height: 1.6em;
-    margin: 0.5rem 0 1rem;
+    margin: 1.25rem 0 1.5rem;
     text-align: center;
 }
 
 .personaje {
     display: flex;
     flex-direction: column;
-    flex: 1 1 12rem;
-    max-width: 16rem;
+    flex: 0 0 13rem;
     overflow: hidden;
     padding: 1rem;
     border: 0.2rem dotted var(--color-principal-lila);
     border-radius: 0.5rem;
     background-color: rgb(255 255 255 / 0.03);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .personaje:hover {
     transform: translateY(-0.25rem);
-    box-shadow: 0 0.4rem 1.25rem rgb(205 168 79 / 0.2);
+    box-shadow: 0 0 1.25rem rgb(205 168 79 / 0.45);
+}
+
+.personaje[data-categoria="familia"] {
+    border-color: var(--color-principal-lila);
+    background-color: rgb(205 168 79 / 0.06);
+}
+
+.personaje[data-categoria="enemigos"] {
+    border-color: var(--color-principal-rojo);
+    background-color: rgb(189 9 53 / 0.15);
+}
+
+.personaje[data-categoria="enemigos"]:hover {
+    box-shadow: 0 0 1.25rem rgb(189 9 53 / 0.6);
 }
 
 .personaje[hidden] {
     display: none;
+}
+
+.personaje.aparecer {
+    animation: pop 0.45s ease backwards;
+}
+
+@keyframes pop {
+    0% { opacity: 0; transform: scale(0.6); }
+    70% { opacity: 1; transform: scale(1.08); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 .retrato-personaje {
@@ -131,13 +281,25 @@
 
 .contenido-personaje {
     padding-top: 0.75rem;
+    text-align: center;
 }
 
 .categoria-personaje {
-    color: var(--color-principal-lila);
-    font-size: 0.8rem;
+    display: inline-block;
+    padding: 0.25rem 0.75rem 0.1rem;
+    border-radius: 999px;
+    background-color: var(--color-principal-lila);
+    color: var(--color-fondo);
+    font-size: 0.7rem;
+    font-weight: bold;
+    line-height: 1.2;
     letter-spacing: 0.08rem;
     text-transform: uppercase;
+}
+
+.personaje[data-categoria="enemigos"] .categoria-personaje {
+    background-color: var(--color-principal-rojo);
+    color: var(--color-texto);
 }
 
 .personaje h3 {
@@ -161,8 +323,21 @@
     }
 
     .personaje {
-        flex-basis: 8.5rem;
-        max-width: 12rem;
+        flex-basis: calc(50% - 0.625rem);
+    }
+
+    .flecha-carrusel {
+        width: 2.5rem;
+        height: 2.5rem;
+        margin-top: -1.25rem;
+    }
+
+    .flecha-izquierda {
+        left: 0.5rem;
+    }
+
+    .flecha-derecha {
+        right: 0.5rem;
     }
 }
 

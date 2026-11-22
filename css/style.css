@@ -22,7 +22,10 @@
     --color-texto: rgb(240, 239, 255);
     --color-sombra: rgb(121, 109, 136);
     --color-fondo: rgb(28, 3, 28);
+    --color-fondo-2: rgb(41, 21, 37);
+    --color-fondo-3: rgb(48, 25, 31);
 
+    --margen-lateral: max(1.25rem, calc((100vw - 60rem) / 2));
     --padding-general: 1rem;
 }
 
@@ -33,21 +36,21 @@
 }
 
 html {
-    scroll-behavior: smooth;
     scroll-padding-top: 5rem;
 }
 
 body {
     font-family: "Textos", sans-serif;
-
-    max-width: 63rem;
-    margin: 0 auto;
-    padding: 1.25rem;
+    margin: 0;
 
     line-height: 1.6;
 
     background-color: var(--color-fondo);
     color: var(--color-texto);
+}
+
+body.menu-abierto {
+    overflow: hidden;
 }
 
 img {
@@ -61,6 +64,20 @@ h1 {
     letter-spacing: 0.2rem;
     color: var(--color-principal-lila);
     font-family: "Titulos", Times, serif;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+
+    transition:
+        transform 0.3s ease,
+        text-shadow 0.3s ease;
+}
+
+h1:hover {
+    transform: scale(1.05);
+    text-shadow:
+        0 0 0.5rem var(--color-principal-lila),
+        0 0 1rem var(--color-principal-rojo);
 }
 
 p {
@@ -72,41 +89,49 @@ p span {
     font-weight: bold;
 }
 
-section {
-    margin-top: 1.25rem;
-    padding: 1.25rem;
-    border-radius: 0.625rem;
-}
-
 main section {
     min-height: 12rem;
     scroll-margin-top: 5rem;
+    padding: 2rem var(--margen-lateral);
+    border-top: 0.0625rem solid rgb(205 168 79 / 0.15);
+}
+
+main section:nth-child(odd) {
+    background-color: var(--color-fondo-2);
+}
+
+main section:nth-child(even) {
+    background-color: var(--color-fondo-3);
 }
 
 
 
 @media (max-width: 48rem) {
 
-    body {
-        padding: 0.75rem;
+    :root {
+        --margen-lateral: 1rem;
     }
 
     main section {
         scroll-margin-top: 4rem;
+        padding: 1.5rem var(--margen-lateral);
     }
 }
 
 
 
-@media (prefers-reduced-motion: reduce) {
-    html {
-        scroll-behavior: auto;
-    }
+.revelar {
+    opacity: 0;
+}
 
-    .navegacion,
-    .overlay-logo {
-        transition: none;
-    }
+.revelar.visible {
+    opacity: 1;
+    animation: revelar 0.8s ease backwards;
+}
+
+@keyframes revelar {
+    from { opacity: 0; transform: translateY(2rem); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
 

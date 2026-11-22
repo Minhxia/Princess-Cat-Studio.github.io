@@ -33,18 +33,19 @@
 .boton a {
     text-decoration: none;
     display: inline-block;
-    padding: 0.75rem 2rem;
+    padding: 0.85rem 2rem 0.65rem;
 
     background-color: var(--color-principal-lila);
     color: var(--color-texto);
 
     border-radius: 0.5rem;
     
-    transition: background-color 0-3s ease,
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+    transition: background-color 0.4s ease,
+                transform 0.4s ease,
+                box-shadow 0.4s ease;
 }
-.boton a:hover {
+.boton a:hover,
+.boton a:focus-visible {
     background-color: var(--color-principal-rojo);
     border-color: var(--color-principal-rojo);
 

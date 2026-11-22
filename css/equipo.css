@@ -19,7 +19,8 @@
     transition: 
         transform 0.3s ease,  
         box-shadow 0.3s ease,  
-        color 0.3s ease;  
+        color 0.3s ease,
+        filter 0.3s ease;  
 }
 
 .tarjeta-presentacion p {
@@ -34,7 +35,7 @@
         0 0.625rem 30px var(--color-principal-rojo);
         z-index: 1000;
 }
-.equipo:hover > .tarjeta-presentacion:not(:hover){
+.equipo:has(.tarjeta-presentacion:hover) > .tarjeta-presentacion:not(:hover){
     filter: blur(10px);
     transform: scale(0.9);
 }
@@ -90,7 +91,10 @@
     margin: 0.2rem;
 
     fill: var(--color-texto);
-    transition: transform 0.3s ease;
+    transition:
+        fill 0.3s ease,
+        filter 0.3s ease, 
+        transform 0.3s ease;
 }
 
 .red:hover {
@@ -107,7 +111,29 @@
     }
 
     .tarjeta-presentacion {
-        width: 100%;        
+        width: 100%;
+        margin: 0.5rem 0;        
+    }
+}
 
+@media (max-width: 30rem) {
+    .tarjeta-presentacion {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .foto-gato {
+        flex: 0 0 auto;
+        width: 10rem;
+        margin: 0.5rem auto;
+    }
+
+    .tarjeta-presentacion p {
+        text-align: center;
+    }
+
+    .redes-sociales {
+        flex-direction: row;
+        justify-content: center;
     }
 }
