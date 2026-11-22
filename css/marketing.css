@@ -1,0 +1,62 @@
+
+#marketing {
+    --mk-acento: currentColor;
+    --mk-borde: color-mix(in srgb, currentColor 25%, transparent);
+    --mk-fondo: color-mix(in srgb, currentColor 6%, transparent);
+}
+
+#marketing h2 { margin: 3rem 0 1.2rem; text-align: center; }
+#marketing h3 { text-align: center; }
+
+.mk-gancho { max-width: 52rem; margin: 0 auto; text-align: center; }
+.mk-lema {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    letter-spacing: 0.15em;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+.mk-gancho p { line-height: 1.7; }
+.mk-gancho .boton { margin-top: 1.5rem; display: flex; justify-content: center; }
+
+.mk-rejilla {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 20rem));
+    justify-content: center;
+    gap: 1.2rem;
+}
+.mk-tarjeta {
+    border: 1px solid var(--mk-borde);
+    background: var(--mk-fondo);
+    border-radius: 0.75rem;
+    padding: 1.2rem 1.3rem;
+    text-align: center;
+}
+.mk-tarjeta h3 { margin: 0 0 0.5rem; }
+.mk-tarjeta p { margin: 0; line-height: 1.6; }
+
+.mk-ficha {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(14rem, 18rem));
+    justify-content: center;
+    gap: 0.8rem 1.5rem;
+    margin: 0 auto;
+    text-align: center;
+}
+.mk-ficha div { border-bottom: 1px solid var(--mk-borde); padding-bottom: 0.6rem; }
+.mk-ficha dt { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.1em; opacity: 0.7; }
+.mk-ficha dd { margin: 0.2rem 0 0; }
+
+.mk-texto { max-width: 52rem; margin: 0 auto; line-height: 1.7; text-align: center; }
+
+.mk-marca {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 20rem));
+    justify-content: center;
+    gap: 1.5rem;
+    text-align: center;
+}
+.mk-marca h3 { margin: 0 0 0.4rem; }
+.mk-marca p { margin: 0; line-height: 1.6; }
+
+.mk-cta { margin-top: 3rem; text-align: center; }
+.mk-cta .boton { margin-top: 1rem; display: flex; justify-content: center; }
